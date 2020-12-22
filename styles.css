@@ -4,14 +4,13 @@
     box-sizing: border-box;
 }
 
-
 body{
     background-color: rgb(255, 165, 0);
 }
 
-/* main container */
+/* MAIN CONTAINER */
 .container{
-    border-radius: 50px;
+    border-radius: 10%;
     margin: 20px auto;
     background-color: #296d98;
     height: 600px;
@@ -19,11 +18,51 @@ body{
     padding-top: 20px;
 }
 
-/* displayer */
+/* DISPLAYER */
 .displayer{
     width: 90%;
     height: 70px;
     background-color: white;
-    margin: 0px auto;
-    border-radius: 50px;
+    margin: 0 auto;
+    border-radius: 25px;
+    font-size: 50px;
+    text-align: right;
+    padding: 3px 10px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* BUTTONS */
+.buttons-container{
+    margin: auto;
+    width: 90%;
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.button{
+    background-color: #cccccc;
+    height: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 50px;
+}
+
+.top-left{
+    border-top-left-radius: 15px;
+}
+.top-right{
+    border-top-right-radius: 15px;
+}
+.bot-left{
+    border-bottom-left-radius: 15px;
+}
+.bot-right{
+    border-bottom-right-radius: 15px;
+}
+
+.equal{
+    background-color: #ed7117;
+    color: white
 }
