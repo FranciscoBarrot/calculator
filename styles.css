@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: rgb(255, 165, 0);
+}
+
+/* main container */
+.container{
+    border-radius: 50px;
+    margin: 20px auto;
+    background-color: #296d98;
+    height: 600px;
+    width: 400px;
+    padding-top: 20px;
+}
+
+/* displayer */
+.displayer{
+    width: 90%;
+    height: 70px;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 50px;
+}
