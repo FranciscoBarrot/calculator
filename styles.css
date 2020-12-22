@@ -35,7 +35,30 @@ body{
 .buttons-container{
     margin: auto;
     width: 90%;
-    margin-top: 35px;
+    margin-top: 10px;
+    
+}
+
+.clear-buttons-container{
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.clear-buttons{
+    height: 50px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    background-color: #ed7117;
+    color: white;
+    outline: none;
+}
+
+
+
+
+.regular-buttons-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -44,9 +67,10 @@ body{
 
 .button{
     background-color: #cccccc;
-    height: 100px;
+    height: 97px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 50px;
+    outline: none;
 }
 
 .top-left{
@@ -64,5 +88,5 @@ body{
 
 .equal{
     background-color: #ed7117;
-    color: white
+    color: white;
 }
