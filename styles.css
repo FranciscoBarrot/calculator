@@ -50,12 +50,24 @@ body{
     height: 50px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 30px;
-    background-color: #ed7117;
     color: white;
     outline: none;
+    cursor: pointer;
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #ffa914 5%, #bc3315 100%);
+    background-color:#ffa914;
+    text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
 }
 
-
+.clear-buttons:hover, .equal:hover{
+	background:linear-gradient(to bottom, #bc3315 5%, #ffa914 100%);
+	background-color:#bc3315;
+}
+.clear-buttons:active, .equal:hover {
+	position:relative;
+	top:1px;
+}
 
 
 .regular-buttons-container{
@@ -66,11 +78,33 @@ body{
 }
 
 .button{
-    background-color: #cccccc;
     height: 97px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 50px;
     outline: none;
+    cursor: pointer;
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+    }
+
+.button:hover {
+    background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    background-color:#6c7c7c;
+    }
+.button:active {
+    position:relative;
+    top:1px;
+}
+
+.equal{
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #ffa914 5%, #bc3315 100%);
+    background-color:#ffa914;
+    text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
 }
 
 .top-left{
