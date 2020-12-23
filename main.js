@@ -32,3 +32,19 @@ function operate (operator,a,b) {
             break
     }
 }
+
+
+/* DISPLAY */
+function display(e){
+    displayValue = displayer.textContent
+    displayValue *= displayValue * 10
+    displayValue = displayValue + e.target.textContent
+    displayer.textContent = displayValue
+}
+
+
+const displayer = document.querySelector(".displayer")
+let displayValue
+
+const numberBtn = document.querySelectorAll(".number")
+numberBtn.forEach(btn => btn.addEventListener("click", display))
