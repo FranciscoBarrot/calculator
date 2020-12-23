@@ -35,16 +35,29 @@ function operate (operator,a,b) {
 
 
 /* DISPLAY */
+/* FUNCTIONS */
 function display(e){
     displayValue = displayer.textContent
-    displayValue *= displayValue * 10
+    if (displayValue === "0"){
+        displayValue = e.target.textContent
+    }
+    else {
     displayValue = displayValue + e.target.textContent
+    }
     displayer.textContent = displayValue
 }
 
+function clear(e){
+    displayValue = 0
+    displayer.textContent = displayValue
+}
 
+/* MAIN CODE */
 const displayer = document.querySelector(".displayer")
 let displayValue
 
 const numberBtn = document.querySelectorAll(".number")
 numberBtn.forEach(btn => btn.addEventListener("click", display))
+
+const clearBtn = document.querySelector(".clear")
+clearBtn.addEventListener("click", clear)
