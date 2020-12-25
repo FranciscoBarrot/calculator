@@ -1,3 +1,20 @@
+/* VARIABLES */
+let displayValue = "0"
+let firstOperand = null
+let operator
+const displayer = document.querySelector(".displayer")
+const numberBtn = document.querySelectorAll(".number")
+const clearBtn = document.querySelector(".clear")
+const operandBtn = document.querySelectorAll(".operation")
+const equalBtn = document.querySelector(".equal")
+
+/* MAIN CODE */
+numberBtn.forEach(btn => btn.addEventListener("click", display))
+operandBtn.forEach(btn => btn.addEventListener("click", clickOperator))
+equalBtn.addEventListener("click", clickEqual)
+clearBtn.addEventListener("click", clear)
+
+
 /* OPERATIONS */
 function add (a,b) {
     return a + b
@@ -16,7 +33,7 @@ function divide (a,b) {
 }
 
 
-function operate (operator,a,b) {
+function operate (a,b,operator) {
     switch (operator) {
         case "+":   
             return add(a,b)
@@ -27,7 +44,7 @@ function operate (operator,a,b) {
         case "*":
             return multiply(a,b)
             break
-        default:
+        case "/":
             return divide(a,b)
             break
     }
@@ -35,29 +52,43 @@ function operate (operator,a,b) {
 
 
 /* DISPLAY */
-/* FUNCTIONS */
 function display(e){
-    displayValue = displayer.textContent
     if (displayValue === "0"){
         displayValue = e.target.textContent
     }
     else {
-    displayValue = displayValue + e.target.textContent
+        displayValue = displayValue + e.target.textContent
     }
     displayer.textContent = displayValue
 }
 
 function clear(e){
-    displayValue = 0
+    displayValue = "0"
     displayer.textContent = displayValue
 }
 
-/* MAIN CODE */
-const displayer = document.querySelector(".displayer")
-let displayValue
 
-const numberBtn = document.querySelectorAll(".number")
-numberBtn.forEach(btn => btn.addEventListener("click", display))
+/* OPERATE */
+function clickEqual(e){
+    if (operator){
+        /* if (!firstOperand){
+            firstOperand = displayValue
+        } */
+        displayValue = operate(Number(firstOperand),Number(displayValue),operator)
+        displayer.textContent = displayValue
+        firstOperand = null
+    }
+}
 
-const clearBtn = document.querySelector(".clear")
-clearBtn.addEventListener("click", clear)
+function clickOperator(e){
+    if (firstOperand === null){
+        firstOperand = displayValue
+        operator = e.target.textContent
+        displayValue = "0"
+    }
+    else {
+
+        }
+
+    }
+    
