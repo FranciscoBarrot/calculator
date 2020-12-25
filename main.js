@@ -53,18 +53,22 @@ function operate (a,b,operator) {
 
 /* DISPLAY */
 function display(e){
-    if (displayValue === "0"){
-        displayValue = e.target.textContent
+    if (displayValue.length < 11){
+        if (displayValue === "0"){
+            displayValue = e.target.textContent
+        }
+        else {
+            displayValue = displayValue + e.target.textContent
+        }
+        displayer.textContent = displayValue
     }
-    else {
-        displayValue = displayValue + e.target.textContent
-    }
-    displayer.textContent = displayValue
 }
 
 function clear(e){
     displayValue = "0"
     displayer.textContent = displayValue
+    firstOperand = null
+    operator = null
 }
 
 
@@ -77,18 +81,17 @@ function clickEqual(e){
         displayValue = operate(Number(firstOperand),Number(displayValue),operator)
         displayer.textContent = displayValue
         firstOperand = null
+        operator = null
     }
 }
 
 function clickOperator(e){
-    if (firstOperand === null){
-        firstOperand = displayValue
-        operator = e.target.textContent
-        displayValue = "0"
+    if (firstOperand){
+        displayValue = operate(Number(firstOperand),Number(displayValue),operator)
+        displayer.textContent = displayValue
     }
-    else {
-
-        }
-
-    }
+    firstOperand = displayValue
+    operator = e.target.textContent
+    displayValue = "0"
+}
     
