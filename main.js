@@ -54,7 +54,7 @@ function operate (a,b,operator) {
 /* DISPLAY */
 function display(e){
     if (displayValue.length < 11){
-        if (displayValue === "0"){
+        if ((displayValue === "NaN") || (displayValue === "0")){
             displayValue = e.target.textContent
         }
         else {
@@ -71,6 +71,18 @@ function clear(e){
     operator = null
 }
 
+function round(number){
+    let string = number.toString()
+    if (string.length > 11){
+        string = string.slice(0,11)
+        if (string.charAt(10) === "."){
+            string = string.slice(0,10)
+        }
+    }
+    return string
+}
+
+
 
 /* OPERATE */
 function clickEqual(e){
@@ -79,6 +91,13 @@ function clickEqual(e){
             firstOperand = displayValue
         } */
         displayValue = operate(Number(firstOperand),Number(displayValue),operator)
+
+        if (displayValue > 99999999999){
+            displayValue = NaN
+        }
+                
+        displayValue = round(displayValue)
+
         displayer.textContent = displayValue
         firstOperand = null
         operator = null
@@ -88,6 +107,10 @@ function clickEqual(e){
 function clickOperator(e){
     if (firstOperand){
         displayValue = operate(Number(firstOperand),Number(displayValue),operator)
+        
+
+        displayValue = round(displayValue)
+
         displayer.textContent = displayValue
     }
     firstOperand = displayValue
