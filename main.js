@@ -2,6 +2,7 @@
 let displayValue = "0"
 let firstOperand = null
 let operator
+let equalClicked = false
 const displayer = document.querySelector(".displayer")
 const numberBtn = document.querySelectorAll(".number")
 const clearBtn = document.querySelector(".clear")
@@ -60,8 +61,9 @@ function operate (a,b,operator) {
 /* DISPLAY */
 function display(e){
     if (displayValue.length < 11){
-        if ((displayValue === "NaN") || (displayValue === "0")){
+        if ((displayValue === "NaN") || (displayValue === "0") || equalClicked){
             displayValue = e.target.textContent
+            equalClicked = false
         }
         else {
             displayValue = displayValue + e.target.textContent
@@ -117,6 +119,7 @@ function clickEqual(e){
         displayer.textContent = displayValue
         firstOperand = null
         operator = null
+        equalClicked = true
     }
 }
 
@@ -132,5 +135,6 @@ function clickOperator(e){
     firstOperand = displayValue
     operator = e.target.textContent
     displayValue = "0"
+    equalClicked = false
 }
     
