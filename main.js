@@ -7,13 +7,16 @@ const numberBtn = document.querySelectorAll(".number")
 const clearBtn = document.querySelector(".clear")
 const operandBtn = document.querySelectorAll(".operation")
 const equalBtn = document.querySelector(".equal")
+const backspaceBtn = document.querySelector(".clear-entry")
+const dotBtn = document.querySelector(".dot")
 
 /* MAIN CODE */
 numberBtn.forEach(btn => btn.addEventListener("click", display))
 operandBtn.forEach(btn => btn.addEventListener("click", clickOperator))
 equalBtn.addEventListener("click", clickEqual)
 clearBtn.addEventListener("click", clear)
-
+backspaceBtn.addEventListener("click", clearEntry)
+dotBtn.addEventListener("click", floatNumber)
 
 /* OPERATIONS */
 function add (a,b) {
@@ -51,6 +54,9 @@ function operate (a,b,operator) {
 }
 
 
+
+
+
 /* DISPLAY */
 function display(e){
     if (displayValue.length < 11){
@@ -82,6 +88,16 @@ function round(number){
     return string
 }
 
+function floatNumber(e){
+    if (displayValue.indexOf(".") === -1){
+        display(e)
+    }
+}
+
+function clearEntry(){
+    displayValue = displayValue.slice(0,-1)
+    displayer.textContent = displayValue
+}
 
 
 /* OPERATE */
